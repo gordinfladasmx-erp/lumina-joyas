@@ -1,0 +1,37 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ── Security Headers — todas las rutas ──────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Clickjacking: impide que la app se cargue en cualquier iframe
+    X-Frame-Options = "DENY"
+
+    # MIME-sniffing: el navegador respeta el Content-Type declarado
+    X-Content-Type-Options = "nosniff"
+
+    # Solo envía el origin en el Referer (no la URL completa)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # HSTS: fuerza HTTPS por 1 año
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # Deshabilita APIs de browser que no se usan
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()"
+
+    # Cross-Origin Opener Policy — protege de ataques Spectre cross-origin
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
+
+    # Cross-Origin Resource Policy — solo este origen puede usar los recursos
+    Cross-Origin-Resource-Policy = "same-origin"
+
