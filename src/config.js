@@ -23,7 +23,7 @@ export const CONTACTO = {
   instagram: '@PENDIENTE',
   instagramUrl: 'https://www.instagram.com/PENDIENTE',
   web: 'https://PENDIENTE.netlify.app',   // la direccion final de la tienda
-  clabe: 'PENDIENTE',
+  clabe: '012222011476250142',
 }
 
 // Colores de la marca (dorado de Lumina). Se aplican como variables CSS al abrir la pagina.
