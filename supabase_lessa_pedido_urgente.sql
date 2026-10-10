@@ -30,12 +30,15 @@ declare
   res jsonb := '[]'::jsonb; v_id bigint; v_num text; ant numeric; es_admin boolean;
   pct numeric := 0.30; fmodo text;
 begin
-  if coalesce(trim(p_nombre),'') = '' or coalesce(trim(p_email),'') = '' then
-    raise exception 'Nombre y email son obligatorios';
+  es_admin := lessa_admin_ok(p_admin_pass);
+  if coalesce(trim(p_nombre),'') = '' then raise exception 'El nombre es obligatorio'; end if;
+  -- En pedidos en linea el correo y el WhatsApp son obligatorios; en una venta de mostrador (personal) son opcionales.
+  if not (es_admin and p_venta_mostrador) then
+    if coalesce(trim(p_email),'') = '' then raise exception 'El correo es obligatorio'; end if;
+    if coalesce(trim(p_whatsapp),'') = '' then raise exception 'El WhatsApp es obligatorio'; end if;
   end if;
   if jsonb_array_length(p_items) = 0 then raise exception 'Carrito vacío'; end if;
   perform vencer_apartados();
-  es_admin := lessa_admin_ok(p_admin_pass);
   fmodo := case when p_modo = 'total' then 'total' else 'apartado' end;
 
   for it in select * from jsonb_array_elements(p_items) loop
