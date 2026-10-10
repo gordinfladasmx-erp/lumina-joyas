@@ -17,8 +17,8 @@ export const MARCA = {
 }
 
 export const CONTACTO = {
-  whatsapp: 'PENDIENTE',                  // con lada de pais, solo digitos. Ej: 5215512345678
-  whatsappVisible: 'PENDIENTE',           // Ej: +52 55 1234 5678
+  whatsapp: '524623265800',               // con lada de pais, solo digitos
+  whatsappVisible: '+52 462 326 5800',
   email: 'PENDIENTE',
   instagram: '@PENDIENTE',
   instagramUrl: 'https://www.instagram.com/PENDIENTE',

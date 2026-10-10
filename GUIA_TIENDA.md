@@ -3,6 +3,12 @@
 Esta tienda es una copia del mismo codigo que Lessa Joyeria, con su propia marca y su propia base de datos.
 Se necesitan tres cuentas gratuitas: GitHub (guarda el codigo), Supabase (guarda productos, pedidos e inventario) y Netlify (publica la pagina).
 
+## Estado actual
+
+- Ya configurado: nombre, logo, colores dorados, WhatsApp (+52 462 326 5800), contraseña del panel (la misma de Lessa), 14 categorias y el catalogo completo de Lessa (2,224 productos con fotos, existencia en 0).
+- Falta completar en `src/config.js`: `email`, `instagram`, `instagramUrl`, `clabe` y `web` (esta ultima al publicar).
+- `instalar.sql` y `catalogo.sql` ya estan generados en esta carpeta (`instalar.sql` no se sube a GitHub porque lleva la contraseña).
+
 ## Datos que hay que completar antes
 
 Archivo `src/config.js`:
@@ -41,6 +47,10 @@ La contraseña del panel que se eligio en el paso 2 es la que se usa en el boton
 4. Deploy. La direccion que da Netlify se pone en `CONTACTO.web` de `src/config.js`.
 
 ## Paso 4. Cargar el catalogo
+
+El catalogo de Lessa ya viene incluido: pegar `catalogo.sql` en el SQL Editor de Supabase (Run), despues de `instalar.sql`. Las fotos ya estan en `public/fotos`.
+
+Para agregar productos propios mas adelante:
 
 Las fotos se ordenan en una carpeta, una subcarpeta por categoria, y el nombre de cada foto lleva el codigo y el precio:
 
